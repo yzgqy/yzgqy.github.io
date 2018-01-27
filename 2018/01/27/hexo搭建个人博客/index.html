@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="咸鱼の博客">
 <meta property="og:description" content="hexo+github搭建个人博客一直以来都想搭建一个个人博客，在2017年初知道了用hexo搭建个人博客并搭建成功，但一直以来都没有写太多的文章。2018年的今天决定要重拾博客，搭建时又查阅了一番。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-27T12:42:05.859Z">
+<meta property="og:updated_time" content="2018-01-27T12:45:14.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建个人博客">
 <meta name="twitter:description" content="hexo+github搭建个人博客一直以来都想搭建一个个人博客，在2017年初知道了用hexo搭建个人博客并搭建成功，但一直以来都没有写太多的文章。2018年的今天决定要重拾博客，搭建时又查阅了一番。">
@@ -421,15 +421,38 @@
 <p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
 <p>如果4000端口被占用，可以用ctrl+c停止服务器，使用“hexo server -p 端口号”命令来改变端口号</p>
 <h3 id="hexo与github-page关联"><a href="#hexo与github-page关联" class="headerlink" title="hexo与github page关联"></a>hexo与github page关联</h3><h4 id="关联前提"><a href="#关联前提" class="headerlink" title="关联前提"></a>关联前提</h4><p>关联之前首先你得有个github账号，并与电脑的git设置好ssh配置，具体的配置可以见文章<a href="https://yzgqy.github.io/2017/03/25/git%E4%B9%8BSSH%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">《git之SSH配置》</a></p>
-<h4 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h4><p>在创建仓库时要注意Repository name的命名格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 配置_config.yml</span><br><span class="line"></span><br><span class="line">创建完仓库后我们要配置hexo的配置文件_config.yml</span><br></pre></td></tr></table></figure></p>
-<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/xxx/xxx.github.io.git" target="_blank" rel="noopener">https://github.com/xxx/xxx.github.io.git</a><br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">其中 xxx为你的github的用户名，整个repo参数即仓库地址</span><br><span class="line"></span><br><span class="line">#### 安装自动发布工具</span><br></pre></td></tr></table></figure></p>
-<p>npm instal lhexo-deployer-git  –save</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">####  发布到github</span><br><span class="line"></span><br><span class="line">1、清除缓存文件</span><br></pre></td></tr></table></figure>
-<p>$ hexo clean<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、生产静态文件</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo g<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3、部署网站</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo deploy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">该命令可以简写为：</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo d<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">选项 | 描述</span><br><span class="line">---|---</span><br><span class="line">-g, --generate | 部署之前预先生成静态文件</span><br><span class="line"></span><br><span class="line">4、访问网址</span><br><span class="line"></span><br><span class="line">博客的访问地址可以在仓库的Settings中的options下面的Github Pages看到:``` https://xxx.github.io/ ``` </span><br><span class="line"></span><br><span class="line">## 发布文章与个性化</span><br><span class="line">创建文章</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo new [layout] <title><br>```<br>layout：post、page 和 draft</title></p>
+<h4 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h4><p>在创建仓库时要注意Repository name的命名格式：”<githubname>.github.io”，其中githubname就是你github的用户名。</githubname></p>
+<h4 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml"></a>配置_config.yml</h4><p>创建完仓库后我们要配置hexo的配置文件_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/xxx/xxx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>其中 xxx为你的github的用户名，整个repo参数即仓库地址</p>
+<h4 id="安装自动发布工具"><a href="#安装自动发布工具" class="headerlink" title="安装自动发布工具"></a>安装自动发布工具</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm instal lhexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
+<h4 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h4><p>1、清除缓存文件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<p>2、生产静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>3、部署网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>该命令可以简写为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g, –generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<p>4、访问网址</p>
+<p>博客的访问地址可以在仓库的Settings中的options下面的Github Pages看到: “ <a href="https://xxx.github.io/" target="_blank" rel="noopener">https://xxx.github.io/</a> “ </p>
+<h2 id="发布文章与个性化"><a href="#发布文章与个性化" class="headerlink" title="发布文章与个性化"></a>发布文章与个性化</h2><p>创建文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>layout：post、page 和 draft</p>
 <p>此时hexo的默认博客就已经部署好了，下面就可以进行文章的发布与个性化主题的设计了，可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官方文档</a></p>
 
       
@@ -635,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-github搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">hexo+github搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装前提"><span class="nav-number">1.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建网站"><span class="nav-number">1.2.</span> <span class="nav-text">搭建网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建站"><span class="nav-number">1.2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启服务"><span class="nav-number">1.2.3.</span> <span class="nav-text">开启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo与github-page关联"><span class="nav-number">1.2.4.</span> <span class="nav-text">hexo与github page关联</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关联前提"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">关联前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建github仓库"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">创建github仓库</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-github搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">hexo+github搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装前提"><span class="nav-number">1.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建网站"><span class="nav-number">1.2.</span> <span class="nav-text">搭建网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建站"><span class="nav-number">1.2.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启服务"><span class="nav-number">1.2.3.</span> <span class="nav-text">开启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo与github-page关联"><span class="nav-number">1.2.4.</span> <span class="nav-text">hexo与github page关联</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关联前提"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">关联前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建github仓库"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">创建github仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-config-yml"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">配置_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装自动发布工具"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">安装自动发布工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布到github"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">发布到github</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布文章与个性化"><span class="nav-number">1.3.</span> <span class="nav-text">发布文章与个性化</span></a></li></ol></li></ol></div>
             
 
           </div>
